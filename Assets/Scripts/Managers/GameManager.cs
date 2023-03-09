@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private ScenesManager scenesManager;
     public static GameManager instance;
     public static GameManager Instance
     {
@@ -19,23 +17,16 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        scenesManager = new ScenesManager();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // This function is used for debug purposes
     public static void TestFunction()
     {
         Debug.Log("The GameManager is being used!");
     }
 
-    // This function should be called when the game needs to change scene
     public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        scenesManager.LoadScene(sceneName);
     }
 }
