@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("The GameManager is being used!");
     }
 
-    public void ChangeScene(string sceneName)
+    public void LoadSceneByBuildIndex(int buildIndex)
     {
-        scenesManager.LoadScene(sceneName);
+        scenesManager.LoadScene(buildIndex);
     }
 }
