@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         scenesManager = new ScenesManager();
+        DontDestroyOnLoad(instance);
     }
 
     public static void TestFunction()
