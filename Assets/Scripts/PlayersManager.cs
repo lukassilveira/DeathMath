@@ -14,8 +14,6 @@ public class PlayersManager : MonoBehaviour
 
     public void GenerateQuestion()
     {
-
-        Debug.ClearDeveloperConsole();
         numberGenerator.GenerateQuestion();
     }
 }

@@ -36,14 +36,16 @@ public class NumberGenerator
         int secondNumber = Random.Range(1, 16);
 
         answerModelValues.correctAnswer = firstNumber + secondNumber;
-        (answerModelValues.wrongAnswer1, answerModelValues.wrongAnswer2) = GenerateWrongAnswers(answerModelValues.correctAnswer);
-        DebugAnswerModel(firstNumber, secondNumber, Operation.SUM, answerModelValues);
+        var wrongValues = GenerateWrongAnswers(answerModelValues.correctAnswer);
+        (answerModelValues.wrongAnswer1, answerModelValues.wrongAnswer2) = wrongValues;
+
+        LogAllQuestionValues(firstNumber, secondNumber, Operation.SUM, answerModelValues);
+
         return answerModelValues;
     }
 
-    private void DebugAnswerModel(int firstNumber, int secondNumber, Operation operation, AnswerModel answerModelValues)
+    private void LogAllQuestionValues(int firstNumber, int secondNumber, Operation operation, AnswerModel answerModelValues)
     {
-
         Debug.Log(
             firstNumber.ToString() + OperationStringHandler(operation) + secondNumber.ToString() +
             "\nCorrect answer: " + answerModelValues.correctAnswer.ToString() + "\n" +
@@ -52,6 +54,11 @@ public class NumberGenerator
         );
     }
 
+    /// <summary>
+    /// Returns the operation equivalent string.
+    /// </summary>
+    /// <param name="operation"></param>
+    /// <returns></returns>
     private string OperationStringHandler(Operation operation)
     {
         switch (operation)
